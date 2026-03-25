@@ -1,6 +1,59 @@
-
-
-
-
-
-
+SQLite version 3.51.0 2025-06-12 13:14:41
+Enter ".help" for usage hints.
+Connected to a transient in-memory database.
+Use ".open FILENAME" to reopen on a persistent database.
+sqlite> .open Student_Records.db
+sqlite> CREATEsqlite> CREATE TABLE Student_Records(ID INTEGER,Name TEXT,Grade INTEGER,Department TEXT);
+Parse error: near "Student_Records": syntax error
+  CREATE TABLE Student_Recor Student_Records(ID INTEGER,Name TEXT,Grade INTEGER,
+               error here ---^
+sqlite> CREATE TABLE Student_Records(ID INTEGER,Name TEXT,Grade INTEGER,Department TEXT);
+sqlite> INSERT INTO Student_Records VALUES(100, 'Sneha', 12, 'PCMB');
+sqlite> INSERT INTO Student_Records VALUES(101, 'Riona', 11, 'PCMC');
+sqlite> INSERT INTO Student_Records VALUES(102, 'Nithya', 12, 'PCME');
+sqlite> INSERT INTO Student_Records VALUES(103, 'Sinchana', 11, 'PCMB');
+sqlite> INSERT INTO Student_Records VALUES(104, 'Sowmya', 12, 'PCMC');
+sqlite> INSERT INTO Student_Records VALUES(105, 'Palavi', 12, 'PCMB')
+   ...> INSERT INTO Student_Records VALUES(105, 'Palavi', 12, 'PCMB')
+   ...> INSERT INTO Student_Records VALUES(105, 'Palavi', 12, 'PCMB');
+Parse error: near "INSERT": syntax error
+  Student_Records VALUES(105, 'Palavi', 12, 'PCMB') INSERT INTO Student_Records 
+                                      error here ---^
+sqlite> INSERT INTO Student_Records VALUES(105, 'Palavi', 12, 'PCMB');
+sqlite> SELECT * FROM Student_Records
+   ...> SELECT * FROM Student_Records;
+Parse error: near "SELECT": syntax error
+  SELECT * FROM Student_Records SELECT * FROM Student_Records;
+                  error here ---^
+sqlite> SELECT * FROM Student_Records;
+100|Sneha|12|PCMB
+101|Riona|11|PCMC
+102|Nithya|12|PCME
+103|Sinchana|11|PCMB
+104|Sowmya|12|PCMC
+105|Palavi|12|PCMB
+sqlite> UPDATE Student_Records SET Grade = 12 WHERE Name='Sinchana';
+sqlite> SELECT * FROM Student_Records;
+100|Sneha|12|PCMB
+101|Riona|11|PCMC
+102|Nithya|12|PCME
+103|Sinchana|12|PCMB
+104|Sowmya|12|PCMC
+105|Palavi|12|PCMB
+sqlite> UPDATE Student_Records SET Department='PCMB' WHERE Name='Nithya';
+sqlite> SELECT * FROM Student_Records;
+100|Sneha|12|PCMB
+101|Riona|11|PCMC
+102|Nithya|12|PCMB
+103|Sinchana|12|PCMB
+104|Sowmya|12|PCMC
+105|Palavi|12|PCMB
+sqlite> CREATE TABLE Parent_Records(Name TEXT,Job TEXT,Number INTEGER);
+sqlite> INSERT INTO Parent_Records VALUES('Babu','Enterpreneur',7892195780);
+sqlite> INSERT INTO Parent_Records VALUES('Renu','Software Dev',9456281478);
+sqlite> INSERT INTO Parent_Records VALUES('Isha','Software Dev', 9457271556);
+sqlite> INSERT INTO Parent_Records VALUES('Priya','Engineer',8056045558);
+sqlite> INSERT INTO Parent_Records VALUES('Gopi','Farmer',8056045559);
+sqlite> INSERT INTO Parent_Records VALUES('Arun','Agriculture',6138615267);
+sqlite> SELECT Student_Records.Name, Parent_Records.Job FROM Student_Records INNER JOIN Parent_Records ON Student_Records.Name = Parent_Records.Job;
+sqlite>
