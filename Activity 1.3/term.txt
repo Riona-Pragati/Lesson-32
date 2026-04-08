@@ -1,0 +1,25 @@
+SQLite version 3.51.0 2025-06-12 13:14:41
+Enter ".help" for usage hints.
+Connected to a transient in-memory database.
+Use ".open FILENAME" to reopen on a persistent database.
+sqlite> .open Details.db
+sqlite> CREATE TABLE Details(Name TEXT,Age INTEGER,Address TEXT);
+sqlite> INSERT INTO Details VALUES('Sneha', 20, 'Chennai');
+sqlite> INSERT INTO Details VALUES('Riona', 21, 'Delhi');
+sqlite> INSERT INTO Details VALUES('Nithya', 23, 'Jaipur');
+sqlite> INSERT INTO Details VALUES('Sinchana', 23, 'Bangalore');
+sqlite> INSERT INTO Details VALUES('Sowmya', 24, 'Hyderbad');
+sqlite> SELECT * FROM Details;
+Sneha|20|Chennai
+Riona|21|Delhi
+Nithya|23|Jaipur
+Sinchana|23|Bangalore
+Sowmya|24|Hyderbad
+sqlite> UPDATE Details SET Age = 22 WHERE Name='Nithya';
+sqlite> SELECT * FROM Details;
+Sneha|20|Chennai
+Riona|21|Delhi
+Nithya|22|Jaipur
+Sinchana|23|Bangalore
+Sowmya|24|Hyderbad
+sqlite>
